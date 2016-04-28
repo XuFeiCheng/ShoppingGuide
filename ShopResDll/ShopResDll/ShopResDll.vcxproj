@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B383777E-CE9A-4046-96BF-23C25C4C28F7}</ProjectGuid>
+    <RootNamespace>ShopResDll</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\ShoppingGuide\Debug</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXEXT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>.\ShopResDll.def</ModuleDefinitionFile>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>.\ShopResDll.def</ModuleDefinitionFile>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ShopResDll.cpp" />
+    <ClCompile Include="ShowWnd.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ShopResDll.rc2" />
+    <None Include="ShopResDll.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ShowWnd.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ShopResDll.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\9999.bmp" />
+    <Image Include="res\F1\1001.bmp" />
+    <Image Include="res\F1\1002.bmp" />
+    <Image Include="res\F1\1003.bmp" />
+    <Image Include="res\F1\1004.bmp" />
+    <Image Include="res\F1\1005.bmp" />
+    <Image Include="res\F1\1006.bmp" />
+    <Image Include="res\F1\1007.bmp" />
+    <Image Include="res\F1\1008.bmp" />
+    <Image Include="res\F1\1009.bmp" />
+    <Image Include="res\F1\1010.bmp" />
+    <Image Include="res\F1\1011.bmp" />
+    <Image Include="res\F1\1012.bmp" />
+    <Image Include="res\F1\1013.bmp" />
+    <Image Include="res\F1\1014.bmp" />
+    <Image Include="res\F1\1015.bmp" />
+    <Image Include="res\F1\1016.bmp" />
+    <Image Include="res\F1\1017.bmp" />
+    <Image Include="res\F1\1018.bmp" />
+    <Image Include="res\F1\1019.bmp" />
+    <Image Include="res\F1\1020.bmp" />
+    <Image Include="res\F1\1021.bmp" />
+    <Image Include="res\F1\1022.bmp" />
+    <Image Include="res\F1\1023.bmp" />
+    <Image Include="res\F1\1024.bmp" />
+    <Image Include="res\F1\1025.bmp" />
+    <Image Include="res\F1\1026.bmp" />
+    <Image Include="res\F1\1027.bmp" />
+    <Image Include="res\F1\1028.bmp" />
+    <Image Include="res\F1\1029.bmp" />
+    <Image Include="res\F1\1030.bmp" />
+    <Image Include="res\F1\1031.bmp" />
+    <Image Include="res\F1\1032.bmp" />
+    <Image Include="res\F1\1033.bmp" />
+    <Image Include="res\F1\1034.bmp" />
+    <Image Include="res\F1\1035.bmp" />
+    <Image Include="res\F1\1036.bmp" />
+    <Image Include="res\F1\1037.bmp" />
+    <Image Include="res\F1\1038.bmp" />
+    <Image Include="res\F1\1039.bmp" />
+    <Image Include="res\F1\1040.bmp" />
+    <Image Include="res\F1\1041.bmp" />
+    <Image Include="res\F1\1042.bmp" />
+    <Image Include="res\F1\1043.bmp" />
+    <Image Include="res\F1\1044.bmp" />
+    <Image Include="res\F1\1045.bmp" />
+    <Image Include="res\F1\1046.bmp" />
+    <Image Include="res\F1\1047.bmp" />
+    <Image Include="res\F1\1048.bmp" />
+    <Image Include="res\F1\1049.bmp" />
+    <Image Include="res\F1\1050.bmp" />
+    <Image Include="res\F1\1051.bmp" />
+    <Image Include="res\F1\1052.bmp" />
+    <Image Include="res\F1前台.bmp" />
+    <Image Include="res\F2\2001.bmp" />
+    <Image Include="res\F2\2002.bmp" />
+    <Image Include="res\F2\2003.bmp" />
+    <Image Include="res\F2\2004.bmp" />
+    <Image Include="res\F2\2005.bmp" />
+    <Image Include="res\F2\2006.bmp" />
+    <Image Include="res\F2\2007.bmp" />
+    <Image Include="res\F2\2008.bmp" />
+    <Image Include="res\F2\2009.bmp" />
+    <Image Include="res\F2\2010.bmp" />
+    <Image Include="res\F2\2011.bmp" />
+    <Image Include="res\F2\2012.bmp" />
+    <Image Include="res\F2前台.bmp" />
+    <Image Include="res\logo1.bmp" />
+    <Image Include="res\logo2.bmp" />
+    <Image Include="res\logo3.bmp" />
+    <Image Include="res\logo4.bmp" />
+    <Image Include="res\logo5.bmp" />
+    <Image Include="res\logo6.bmp" />
+    <Image Include="res\logo7.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="ShopResDll.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
